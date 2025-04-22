@@ -241,13 +241,15 @@ export function Available(props) {
                 )}
                 <p>{product.name}</p>
 
+                
+
                 <div
                   className={styles.addToCartButton}
-                  onClick={() => addProductId(product.item_id)}
+                  // onClick={() => addProductId(product.item_id)}
                 >
                   <h6>$ {format(parseInt(product.price1))}</h6>
    
-                  <BiCartAdd size="30" />
+                  {/* <BiCartAdd size="30" /> */}
 
                 </div>
               </div>
