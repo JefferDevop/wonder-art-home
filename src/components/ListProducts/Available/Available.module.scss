@@ -1,0 +1,117 @@
+.list__product {
+  margin: 3rem 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+
+
+  button {
+    width: 95% !important;
+    background-color: #f3f3f3;
+    border: none;
+    color: black;
+    margin-bottom: 1.5rem;
+  }
+
+  .image {
+    position: relative;
+    background-color: #06f85f18;
+    border-radius: 0.5rem;
+    padding: 0.3rem;
+    
+
+    p {
+      margin: 0.8rem 0;
+      color: #b5b5b4;
+      font-size: 0.8rem;
+    
+
+    }
+
+    .offer {
+      position: absolute;
+      z-index: 1;
+
+      h5 {
+        padding: 0.2rem 1rem;
+        border-radius: 0.9rem;
+        margin: 0.5rem;
+        background-color: #f5f5dc;
+        border-radius: 3rem;
+        -webkit-box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.19);
+        -moz-box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.19);
+        box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.19);
+      }
+    }
+
+  }
+
+  .soldout {
+    position: relative;
+
+    .offer {
+      position: absolute;
+      z-index: 1;
+
+      h5 {
+        padding: 0.2rem 1rem;
+        border-radius: 0.9rem;
+
+
+        // top: -4rem;
+        // right: 1rem;
+        margin: 0.5rem;
+        background-color: #b2b2b2;
+        border-radius: 3rem;
+        -webkit-box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.19);
+        -moz-box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.19);
+        box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.19);
+      }
+    }
+
+    img {
+
+      max-width: 180px;
+      border-top-right-radius: 0.5rem;
+      border-top-left-radius: 0.5rem;
+      object-fit: cover;
+      object-position: center center;
+      filter: grayscale(1);
+
+
+    }
+  }
+
+  img {
+    max-width: 200px;
+    max-height: 270px;
+    object-fit: cover;
+    object-position: center center;
+    // aspect-ratio: 4/3;
+    border-radius: 0.3rem;
+  }
+
+  h5 {
+    text-transform: uppercase;
+    font-size: 1rem;
+
+  }
+
+  
+  .addToCartButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #8f7221;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin: 0.5rem 0;
+
+    h6 {
+      font-size: 1.1rem;
+      
+    }
+  
+  }
+
+}

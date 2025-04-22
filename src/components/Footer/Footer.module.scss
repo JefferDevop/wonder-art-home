@@ -1,0 +1,42 @@
+.footer {
+  background-color: rgb(38, 40, 43);
+  padding-top: 20px;
+
+
+  div {
+    flex: 1;
+    h6 {
+      padding: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      color: rgb(214, 211, 214);
+      text-align: center;
+    }
+
+    p {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: rgb(142, 143, 150);
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+    }
+
+    .copyright {
+      text-align: center;
+      color: rgba(206, 199, 138, 0.333);
+      padding-bottom: 10px;
+    }
+
+    .link {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+
+      p {
+        text-transform: uppercase;
+        text-align: center;
+      }
+    }
+  }
+}
