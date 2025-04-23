@@ -17,12 +17,14 @@ export default function CartPage() {
   return (
     <BasicLayout>
       <Separator />
+      <Separator />
+
       {loading ? (
         <h1>Cargando...</h1>
       ) : hasProducts ? (
         <ListCart product={product}  />
       ) : (
-        <NotFound title="Uppss... en este momento no hay productos en el Carrito" />
+        <NotFound title="En este momento no hay productos en el Carrito" />
       )}
     </BasicLayout>
   );

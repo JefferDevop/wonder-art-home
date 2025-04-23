@@ -18,7 +18,7 @@ export default function PaymentPage() {
     const handleLoginAndFetchAddress = async () => {
       try {
         if (!user && !authLoading) {
-          const response = await authCtrl.login({ email: "hh@gmail.com", password: "1452" });
+          const response = await authCtrl.login({ email: "hh@gmail.com", password: "D3s4rr0ll0" });
           login(response.access); // Actualiza el estado de autenticación
         } else if (user && accesToken) {
           const response = await addressCtrl.getAddress(accesToken, user.id);
@@ -40,6 +40,7 @@ export default function PaymentPage() {
   return (
     <BasicLayout>
       <Separator />
+      
       {loading ? (
         <h1>Cargando ...</h1>
       ) : hasProducts ? (

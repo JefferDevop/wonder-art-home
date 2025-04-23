@@ -177,7 +177,7 @@ export function SizeColor({ propductTC, getOffer, toggle }) {
   return (
     <div className={styles.sizeColor}>
       <div className={styles.sizeColor__container}>
-        {tallas.length > 0 && tallas[0].toLowerCase() !== "false" && (
+        {tallas.length > 1 && tallas[0].toLowerCase() !== "false" && (
           <>
             <h5>Talla</h5>
             {tallas
@@ -198,7 +198,7 @@ export function SizeColor({ propductTC, getOffer, toggle }) {
           </>
         )}
 
-        {colores.length > 0 && colores[0].toLowerCase() !== "false" && (
+        {colores.length > 1 && colores[0].toLowerCase() !== "false" && (
           <>
             <h5>Color</h5>
             {colores
@@ -250,7 +250,12 @@ export function SizeColor({ propductTC, getOffer, toggle }) {
         )}
 
         <div>
-          <Button size="lg" disabled={!selectedTalla || !selectedColor} className={styles.addToCart}  block onClick={handleAddToCartClick}>
+          <Button
+            size="lg"
+            className={styles.addToCart}
+            block
+            onClick={handleAddToCartClick}
+          >
             Agregar al Carrito
           </Button>
         </div>

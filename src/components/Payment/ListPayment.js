@@ -29,7 +29,7 @@ const addressCtrl = new Address();
 export function ListPayment({ product, localAddress, authLoading }) {
   const [address, setAddresses] = useState(localAddress);
   const calculateShipping = (city) => {
-    return city?.trim().toLowerCase() === "cali" ? 12000 : 15000;
+    return city?.trim().toLowerCase() === "cali" ? 0 : 0;
   };
 
   const { accesToken, login, logout, user } = useAuth();
@@ -232,10 +232,10 @@ export function ListPayment({ product, localAddress, authLoading }) {
     <div className={styles.list}>
       {isLoading && (
         <div className={styles.loadingPayment}>
-          <h1>Estamos validando...</h1>
+          <h2>Estamos validando...</h2>
         </div>
       )}
-      <h2>Finalizar Compra</h2>
+      <h2>Datos de envío</h2>
       <Form onSubmit={formik.handleSubmit}>
         {address?.length < 1 && (
           <>
@@ -283,13 +283,13 @@ export function ListPayment({ product, localAddress, authLoading }) {
           <div className={styles.totales}>
             <h3>Neto a Pagar</h3>
             <p>Subtotal: $ {format(subtotal)}</p>
-            <p>Envío y manejo: $ {format(envio)}</p>
-            <p>Total a Pagar: $ {format(subtotal + envio)}</p>
+            {/* <p>Envío y manejo: $ {format(envio)}</p> */}
+            <p>Total a Pagar: $ {format(subtotal )}</p>
           </div>
 
           {selectedAddress && (
             <div className={styles.totales}>
-              <h3>Datos de Entrega</h3>
+              <h3>Datos de Envío</h3>
               <p>Nombres: {selectedAddress.name}</p>
               <p>Apellidos: {selectedAddress.lastname}</p>
               <p>Dirección: {selectedAddress.address}</p>
@@ -305,8 +305,9 @@ export function ListPayment({ product, localAddress, authLoading }) {
           )}
         </div>
 
-        <Button block type="submit" color="secondary">
-          Pagar
+        <Button block type="submit" color="primary" disabled={isLoading}>
+          {isLoading ? "Cargando..." : "Pagar"}
+       
         </Button>
       </Form>
 

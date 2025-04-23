@@ -173,7 +173,7 @@ export function FooterCart(props) {
               className={index === selectedItem ? "selected" : ""}
               onClick={() => handleItemClick(item)}
             >
-              <BsWhatsapp size={20} /> Linea {index + 1}
+              <BsWhatsapp size={20} /> wonderarthome {index + 1}
             </Button>
           ))}
         </ModalBody>

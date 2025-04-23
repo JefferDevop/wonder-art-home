@@ -120,18 +120,19 @@ export function ListCart({ product }) {
 
               <CardImg
                 alt="Imagen del producto"
-                src={BASE_NAME + (item[0]?.images || item[0]?.image_alterna)}
+                src={ item[0] ? (item[0].images ? BASE_NAME + item[0].images : item[0].image_alterna) : "" }
+
                 className={styles.skeleton}
               />
 
-              <div className={styles.sizecolor}>
+              {/* <div className={styles.sizecolor}>
                 <p>
                   Talla <label>{item[0]?.talla}</label>
                 </p>
                 <p>
                   Color <label>{item[0]?.color}</label>
                 </p>
-              </div>
+              </div> */}
 
               <div className={styles.price}>
                 <p>

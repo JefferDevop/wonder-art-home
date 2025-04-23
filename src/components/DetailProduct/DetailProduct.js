@@ -6,7 +6,6 @@ import { useWhatsApp, useGallery, useCart } from "@/hooks";
 // import { toast } from "react-toastify";
 import { SizeColor } from "../ListProducts";
 
-
 import { ImageCarousel } from "../ImageCarousel";
 
 import {
@@ -56,7 +55,7 @@ export function DetailProduct(props) {
     getGalleryByCode(data);
     window.scrollTo(0, 0);
   };
-  
+
   //-----------------------------------------------
 
   const handleQuantityChange = (event) => {
@@ -111,7 +110,7 @@ export function DetailProduct(props) {
         <div className={styles.detailProduct}>
           {productData?.price_old > productData?.price1 && (
             <div className={styles.offer}>
-              <h5>¡OFERTA!</h5>             
+              <h5>¡OFERTA!</h5>
             </div>
           )}
 
@@ -128,7 +127,7 @@ export function DetailProduct(props) {
             )}
 
             <div className={styles.description}>
-              <h6 className={styles.name_extend}>{productData?.name_extend}</h6>
+              <h5 className={styles.name_extend}>{productData?.name_extend}</h5>
 
               {productData?.images ? (
                 <div
@@ -170,15 +169,15 @@ export function DetailProduct(props) {
               )}
 
               {productData?.price_old > productData?.price1 && (
-                <h6> $ {format(parseInt(productData?.price_old))}</h6>
+                <>
+                  <h6> $ {format(parseInt(productData?.price_old))}</h6>
+                </>
               )}
 
               <p>{productData?.description}</p>
             </div>
 
-
             <SizeColor propductTC={productInventory} getOffer={getOffer} />
-
 
             {hasItems && (
               <div className={styles.relate}>
@@ -248,7 +247,7 @@ export function DetailProduct(props) {
                     className={index === selectedItem ? "selected" : ""}
                     onClick={() => handleItemClick(item)}
                   >
-                    <BsWhatsapp size={20} /> WhatsApp
+                    <BsWhatsapp size={20} /> wonderarthome
                   </Button>
                 ))}
               </FormGroup>

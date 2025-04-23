@@ -86,9 +86,6 @@
 //   </div>
 // );
 
-
-
-
 import { Products } from "@/api";
 import { useState } from "react";
 import Link from "next/link";
@@ -129,8 +126,6 @@ export function Available(props) {
   //     index === self.findIndex((p) => p.item_id === product.item_id)
   // );
 
-
-
   const uniqueProducts = products.reduce((acc, product) => {
     // Buscar si el producto ya existe en el acumulador por item_id
     const existingProduct = acc.find((p) => p.item_id === product.item_id);
@@ -169,7 +164,12 @@ export function Available(props) {
   };
 
   const addProductId = async (id) => {
+    console.log(id);
+
     const newProducts = await productCtrl.getProductById(id);
+
+    console.log(newProducts, "newProducts");
+
     setPropductTC(newProducts);
 
     // setIdPropduct(id);
@@ -215,11 +215,9 @@ export function Available(props) {
   return (
     <>
       <div className={styles.list__product}>
-
-       
         {map(uniqueProducts, (product, index) => (
           <div key={index}>
-            {product.qty_available > 1 ? (
+            {product.qty_available > 0 ? (
               <div className={styles.image}>
                 {product.offer && (
                   <div className={styles.offer}>
@@ -241,16 +239,14 @@ export function Available(props) {
                 )}
                 <p>{product.name}</p>
 
-                
-
                 <div
                   className={styles.addToCartButton}
-                  // onClick={() => addProductId(product.item_id)}
+                  onClick={() => addProductId(product.item_id)}
                 >
-                  <h6>$ {format(parseInt(product.price1))}</h6>
-   
+                  <h6 className={styles.priceText}>
+                    $ {format(parseInt(product.price1))}
+                  </h6>
                   {/* <BiCartAdd size="30" /> */}
-
                 </div>
               </div>
             ) : (

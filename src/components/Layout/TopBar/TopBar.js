@@ -51,8 +51,6 @@ export function TopBar({ categories, isLoading }) {
           <div onClick={() => toggleModal()}>
             <BiMenu size={30} color="#8f7221" />
           </div>
-
-        
         </div>
 
         <Link href="/">
@@ -91,18 +89,32 @@ export function TopBar({ categories, isLoading }) {
       </div>
 
       <Modal isOpen={isOpen} toggle={toggleModal}>
-        <ModalHeader toggle={toggleModal}>Selección</ModalHeader>
+        <ModalHeader toggle={toggleModal}>Categorías</ModalHeader>
 
         <ModalBody>
           <FormGroup>
-            <Button outline block onClick={() => handleClickAdmin()}>
-              Admin
-            </Button>
+            <div className={styles.topbar_category_menu}>
+              {isLoading ? (
+                <p>Cargando categorías...</p>
+              ) : categories?.length > 0 ? (
+                categories.map((category) => (
+                  <p key={category.id}>
+                    <Link href={`/products/${category.slug}`}>
+                      {category.name}
+                    </Link>
+                  </p>
+                ))
+              ) : (
+                <p></p>
+              )}
+            </div>
           </FormGroup>
         </ModalBody>
 
         <ModalFooter>
-          <Button color="primary" onClick={clearLocalStorage}></Button>
+          {/* <Button color="primary" onClick={clearLocalStorage}></Button> */}
+
+          <div onClick={() => handleClickAdmin()}>Admin</div>
         </ModalFooter>
       </Modal>
     </div>
