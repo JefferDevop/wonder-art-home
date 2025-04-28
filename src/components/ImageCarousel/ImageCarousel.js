@@ -42,37 +42,45 @@ export function ImageCarousel(props) {
 
   return (
     <div className={styles.content}>
-      <Carousel
-        infiniteLoop={true}
-        preventMovementUntilSwipeScrollTolerance={true}
-        dynamicHeight={true}
-        showStatus={false}
-        showThumbs={false}
-      >
-        {gallery &&
-          gallery.length > 0 &&
-          gallery.map((item, index) => (
-            <div className={styles.carousel_vim} key={index}>
-              {item.video_url ? (
-                <ReactPlayer
-                  url={item.video_url}
-                  width={"100%"}
-                  height={"100%"}
-                  controls={true}
-                />
-              ) : item.images ? (
-                <CardImg alt={`Slide ${index}`} src={BASE_NAME + item.images} />
-              ) : item.image ? (
-                <CardImg alt={`Slide ${index}`} src={BASE_NAME + item.image} />
-              ) : item.image_alterna ? (
-                <CardImg alt={`Slide ${index}`} src={item.image_alterna} />
-              ) : (
-                // Muestra un mensaje cuando ninguna condición se cumple
-                <p>No hay contenido para mostrar en este elemento.</p>
-              )}
-            </div>
-          ))}
-      </Carousel>
-    </div>
+  <Carousel
+    infiniteLoop
+    preventMovementUntilSwipeScrollTolerance
+    dynamicHeight
+    showStatus={false}
+    showThumbs={false}
+  >
+    {gallery &&
+      gallery.length > 0 &&
+      gallery
+        .filter(
+          (item) =>
+            (item.video_url && item.video_url.trim() !== '') ||
+            (item.images && item.images.trim() !== '') ||
+            (item.image && item.image.trim() !== '') ||
+            (item.image_alterna && item.image_alterna.trim() !== '')
+        )
+        .map((item, index) => (
+          <div className={styles.carousel_vim} key={index}>
+            {item.video_url ? (
+              <ReactPlayer
+                url={item.video_url}
+                width="100%"
+                height="100%"
+                controls
+              />
+            ) : item.images ? (
+              <CardImg alt={`Slide ${index}`} src={BASE_NAME + item.images} />
+            ) : item.image ? (
+              <CardImg alt={`Slide ${index}`} src={BASE_NAME + item.image} />
+            ) : item.image_alterna ? (
+              <CardImg alt={`Slide ${index}`} src={item.image_alterna} />
+            ) : (
+              <p>No hay contenido para mostrar en este elemento.</p>
+            )}
+          </div>
+        ))}
+  </Carousel>
+</div>
+
   );
 }

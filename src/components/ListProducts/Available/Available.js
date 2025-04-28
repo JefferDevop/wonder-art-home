@@ -212,6 +212,8 @@ export function Available(props) {
     }
   };
 
+  console.log(uniqueProducts, "uniqueProducts");
+  
   return (
     <>
       <div className={styles.list__product}>
@@ -225,26 +227,26 @@ export function Available(props) {
                   </div>
                 )}
 
-                {product.images ? (
+                {product.product.images ? (
                   <Link href={`/${product.slug}`}>
                     <CardImg
                       alt="Card image cap"
-                      src={BASE_NAME + product.images}
+                      src={BASE_NAME + product.product.images}
                     />
                   </Link>
                 ) : (
                   <Link href={`/${product.slug}`}>
-                    <CardImg alt="Card image cap" src={product.image_alterna} />
+                    <CardImg alt="Card image cap" src={product.product.image_alterna} />
                   </Link>
                 )}
-                <p>{product.name}</p>
+                <p>{product.product.name_extend}</p>
 
                 <div
                   className={styles.addToCartButton}
-                  onClick={() => addProductId(product.item_id)}
+                  // onClick={() => addProductId(product.item_id)}
                 >
                   <h6 className={styles.priceText}>
-                    $ {format(parseInt(product.price1))}
+                    $ {format(parseInt(product.product.price1))}
                   </h6>
                   {/* <BiCartAdd size="30" /> */}
                 </div>
@@ -254,15 +256,15 @@ export function Available(props) {
                 <div className={styles.offer}>
                   <h5>AGOTADO</h5>
                 </div>
-                {product.images ? (
+                {product.product.images ? (
                   <CardImg
                     alt="Card image cap"
-                    src={BASE_NAME + product.images}
+                    src={BASE_NAME + product.product.images}
                   />
                 ) : (
-                  <CardImg alt="Card image cap" src={product.image_alterna} />
+                  <CardImg alt="Card image cap" src={product.product.image_alterna} />
                 )}
-                <h5>{product.name}</h5>
+                <h5>{product.product.name_extend}</h5>
               </div>
             )}
             {/* <Button
