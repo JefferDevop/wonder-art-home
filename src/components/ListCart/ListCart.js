@@ -31,7 +31,6 @@ export function ListCart({ product }) {
 
   const handleIncrement = async (selectedProduct) => {
     const newProductCode = selectedProduct.codigo;
-    
 
     if (newProductCode !== productCode) {
       setProductCode(newProductCode);
@@ -55,7 +54,6 @@ export function ListCart({ product }) {
       );
 
       const cartQuantity = availableQuantity - productInCart.quantity;
-
 
       // Verificar si la cantidad en el carrito más la cantidad disponible es mayor a 0
       if (cartQuantity > 0) {
@@ -106,6 +104,13 @@ export function ListCart({ product }) {
 
   return (
     <div className={styles.list}>
+      <p>
+        Nota: El valor del envío no está incluido en el pedido. Se paga contra entrega
+        y te lo confirmamos antes del envío{" "}
+      </p>
+
+      <hr />
+
       <h4>CARRITO</h4>
 
       {product.map((item) => (
@@ -120,8 +125,13 @@ export function ListCart({ product }) {
 
               <CardImg
                 alt="Imagen del producto"
-                src={ item[0] ? (item[0].images ? BASE_NAME + item[0].images : item[0].image_alterna) : "" }
-
+                src={
+                  item[0]
+                    ? item[0].images
+                      ? BASE_NAME + item[0].images
+                      : item[0].image_alterna
+                    : ""
+                }
                 className={styles.skeleton}
               />
 
@@ -169,13 +179,13 @@ export function ListCart({ product }) {
 
               <div className={styles.button}>
                 <AiOutlineMinusCircle
-                color="8f7221"
+                  color="8f7221"
                   onClick={() => decreaseCart(item[0].codigo)}
                   size={20}
                 />
                 <p>{item.quantity}</p>
                 <AiFillPlusCircle
-                color="8f7221"
+                  color="8f7221"
                   onClick={() => handleIncrement(item[0])}
                   size={20}
                 />
@@ -202,7 +212,7 @@ export function ListCart({ product }) {
       </div>
 
       <div className={styles.footButton}>
-        <Button  block onClick={() => handleNavigation("/payment")}>
+        <Button block onClick={() => handleNavigation("/payment")}>
           <p>Finalizar Compra</p>
         </Button>
         <Button outline block onClick={() => handleNavigation("/")}>
